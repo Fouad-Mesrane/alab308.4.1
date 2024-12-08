@@ -14,7 +14,7 @@ for (let i = 1; i < arr2D.length; i++) {
   let obj = {};
 
   arr2D[i].forEach((item, idx) => {
-    obj[headers[idx]] = item;
+    obj[headers[idx].toLowerCase()] = item;
   });
   objArray.push(obj);
 }
@@ -31,4 +31,25 @@ objArray.splice(1,0,{ id: "48", name: "Barry", occupation: "Runner", age: "25" }
 //adding element to the end of an array
 
 objArray.push({ id: "7", name: "Bilbo", occupation: "None", age: "111" })
-console.log(objArray);
+// console.log(objArray);
+
+// calculating the average of age
+
+let sum = 0 ;
+let avg
+for (i=0; i < objArray.length; i++) {
+    sum +=  parseInt(objArray[i].age)
+}
+
+avg = sum / objArray.length
+// console.log(avg)
+
+// full circle
+let csvFormat = '';
+const head =  Object.keys(objArray[0]).join(",") + "\n";
+let body = ''
+for (key of objArray) {
+  body += Object.values(key).join(",") + "\n"
+}
+csvFormat = head + body
+console.log(csvFormat)

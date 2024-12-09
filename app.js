@@ -48,8 +48,8 @@ avg = sum / objArray.length
 let csvFormat = '';
 const head =  Object.keys(objArray[0]).join(",") + "\n";
 let body = ''
-for (key of objArray) {
-  body += Object.values(key).join(",") + "\n"
+for (val of objArray) {
+  body += Object.values(val).join(",") + "\n"
 }
 csvFormat = head + body
 console.log(csvFormat)
